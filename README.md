@@ -1,1 +1,1 @@
-trying to build twrp with drone ci
+trying to build twrp with ci
