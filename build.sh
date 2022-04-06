@@ -12,10 +12,10 @@ apt install openssh-server -y
 DEVICE=${DT_PATH##*\/}
 
 echo " ===+++ Syncing Recovery Sources +++==="
-mkdir -p ~/.bin
-PATH="${HOME}/.bin:${PATH}"
-curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
-chmod a+rx ~/.bin/repo
+mkdir -p ~/bin
+PATH="${HOME}/bin:${PATH}"
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
 repo init --depth=1 -u $MANIFEST -g default,-device,-mips,-darwin,-notdefault 
 repo sync -j$(nproc --all)
 git clone --depth=1 $DT_LINK $DT_PATH
