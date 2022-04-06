@@ -35,4 +35,4 @@ lunch omni_${DEVICE}-eng
 mka recoveryimage
 
 # upload
-curl bashupload.com -T out/target/product/j7xelte/recovery.tar
+curl bashupload.com -T out/target/product/$DEVICE/recovery.tar
