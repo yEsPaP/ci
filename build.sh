@@ -8,7 +8,7 @@ mkdir ~/twrp
 cd ~/twrp
 apt update
 apt upgrade -y
-apt install libncurses5 openssh-server
+apt install libncurses5
 DEVICE=${DT_PATH##*\/}
 
 echo " ===+++ Syncing Recovery Sources +++==="
@@ -19,6 +19,8 @@ chmod a+x ~/bin/repo
 repo init --depth=1 -u $MANIFEST -g default,-device,-mips,-darwin,-notdefault 
 repo sync -c -j$(nproc --all) --no-tag --no-clone-bundle --optimized-fetch --prune
 git clone --depth=1 $DT_LINK $DT_PATH
+rm -rf .repo
+find . -name ".git" | xargs rm
 ln -s /usr/bin/python2.7 /usr/bin/python
 
 echo " ===+++ Building Recovery +++==="
