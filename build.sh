@@ -1,8 +1,8 @@
 #!/bin/bash
 
-MANIFEST="git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0"
+MANIFEST="https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0"
 DT_PATH=device/samsung/j7xelte
-DT_LINK="https://github.com/yespap/twrp -b android-9.0"
+DT_LINK="https://github.com/yespap/twrp.git -b android-9.0"
 
 mkdir ~/twrp
 cd ~/twrp
