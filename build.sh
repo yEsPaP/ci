@@ -17,8 +17,9 @@ PATH="${HOME}/bin:${PATH}"
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
 repo init --depth=1 -u $MANIFEST -g default,-device,-mips,-darwin,-notdefault 
-repo sync -j$(nproc --all)
+repo sync -c -j$(nproc --all) --no-tag --no-clone-bundle --optimized-fetch --prune
 git clone --depth=1 $DT_LINK $DT_PATH
+alias python=/usr/bin/python2.7
 
 echo " ===+++ Building Recovery +++==="
 source build/envsetup.sh
@@ -26,7 +27,6 @@ echo " source build/envsetup.sh done"
 export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL=C
 lunch omni_${DEVICE}-eng
-echo " lunch omni_${DEVICE}-eng done"
 mka recoveryimage
 
 echo " ===+++ Uploading Recovery +++==="
