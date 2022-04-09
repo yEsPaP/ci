@@ -21,8 +21,8 @@ ln -s /usr/bin/python2.7 /usr/bin/python
 # get the source
 mkdir ~/twrp
 cd ~/twrp
-repo init --depth=1 -u $MANIFEST -c --no-tags --partial-clone --no-clone-bundle -g default,-device,-mips,-darwin,-notdefault 
-repo sync -c -l -j$(nproc --all) --no-tags --no-clone-bundle --optimized-fetch --prune
+repo init --depth=1 -u $MANIFEST -c --no-tags --partial-clone --no-clone-bundle -g default,-device,-mips,-darwin,-notdefault
+repo sync -c -j$(nproc --all) --no-tags --no-clone-bundle --optimized-fetch --prune
 git clone --depth=1 $DT_LINK $DT_PATH
 rm -rf .repo
 find . -name ".git" | xargs rm -rf
